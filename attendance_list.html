@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>Attendance List (Admin)</h2>
+    <a href="/admin" class="btn">← Back</a>
+</div>
+
+<div class="container">
+<div class="table-container">
+
+<form method="POST">
+
+<table>
+    <thead>
+        <tr>
+            <th>Delete</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if records %}
+            {% for row in records %}
+            <tr>
+                <td>
+                    <input type="checkbox" name="delete" value="{{ loop.index0 }}">
+                </td>
+                <td>
+                    <input type="text" name="name" value="{{ row.Name }}" required>
+                </td>
+                <td>
+                    <!-- AUTO DATE (READ ONLY) -->
+                    {{ row.Date }}
+                </td>
+                <td>
+                    <input type="time" name="time" value="{{ row.Time }}" required>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4" style="text-align:center;">No attendance records found</td>
+            </tr>
+        {% endif %}
+
+        <!-- ADD NEW ROW -->
+        <tr>
+            <td>➕</td>
+            <td>
+                <input type="text" name="name" placeholder="Student name">
+            </td>
+            <td>
+                {{ today }}
+            </td>
+            <td>
+                <input type="time" name="time">
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<br>
+<button type="submit" class="btn btn-success">💾 Save Changes</button>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

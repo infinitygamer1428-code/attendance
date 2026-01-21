@@ -1,0 +1,20 @@
+<h2>Welcome {{ name }}</h2>
+
+<p><b>Attendance Percentage:</b> {{ percentage }}%</p>
+
+<table>
+<tr>
+    <th>Date</th>
+    <th>Time</th>
+</tr>
+
+{% for row in records %}
+<tr>
+    <td>{{ row.Date }}</td>
+    <td>{{ row.Time }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/logout" class="btn btn-danger">Logout</a>

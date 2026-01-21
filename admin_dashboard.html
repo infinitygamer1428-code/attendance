@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Admin Dashboard</h2>
+    <a href="/logout" class="btn btn-danger">Logout</a>
+</div>
+
+<div class="container">
+    <div class="card-grid">
+
+        <div class="card">
+            <h3>Start Attendance</h3>
+            <p>Open camera and mark attendance</p>
+            <a href="/start_camera" class="btn btn-success">📷 Start Camera</a>
+        </div>
+
+        <div class="card">
+            <h3>Edit Attendance</h3>
+            <p>View and update attendance records</p>
+            <a href="/attendance" class="btn">📝 Edit Attendance</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
